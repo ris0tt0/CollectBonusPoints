@@ -70,3 +70,12 @@ export const perUserMonthsTotal = (nameId, transactions) =>
 
     return retVal;
   }, new Map());
+
+export const getUsersIdList = (transactions) => {
+  const userSet = transactions.reduce((retVal, transaction) => {
+    retVal.add(transaction.userId);
+    return retVal;
+  }, new Set());
+
+  return Array.from(userSet).map((id) => id);
+};
