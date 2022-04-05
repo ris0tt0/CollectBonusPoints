@@ -57,11 +57,8 @@ export const perUserTotal = (nameId, transactions) => {
  * @param {array} transactions an array list of transactions
  * @returns Map of month/total points.
  */
-export const perUserMonthsTotal = (nameId, transactions) => {
-  return perUser(nameId, transactions).reduce((retVal, transaction) => {
-    const date = new Date();
-    date.getMonth();
-    transaction.date.getMonth();
+export const perUserMonthsTotal = (nameId, transactions) =>
+  perUser(nameId, transactions).reduce((retVal, transaction) => {
     if (!retVal.has(transaction.date.getMonth())) {
       retVal.set(transaction.date.getMonth(), 0);
     }
@@ -73,4 +70,3 @@ export const perUserMonthsTotal = (nameId, transactions) => {
 
     return retVal;
   }, new Map());
-};

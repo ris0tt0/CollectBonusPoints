@@ -34,7 +34,7 @@ describe("calculatePoints", () => {
   });
 
   test("$100 is 50 points", () => {
-    expect(calculatePoints(120)).toBe(90);
+    expect(calculatePoints(100)).toBe(50);
   });
 
   test("$99 is 49 points", () => {
@@ -53,7 +53,7 @@ describe("calculatePoints", () => {
     expect(calculatePoints(120)).toBe(90);
   });
 
-  test("$101 is 51 points", () => {
+  test("$101 is 52 points", () => {
     expect(calculatePoints(101)).toBe(52);
   });
 });
@@ -82,7 +82,6 @@ describe("perUserTotal", () => {
 });
 
 describe("perUserMonthsTotal", () => {
-  // Map {9 => 90, 8 => 0}
   test("jay has 90 points for oct, 0 points for sept", () => {
     const results = perUserMonthsTotal("jay", transactions);
     expect(results.size).toBe(2);
